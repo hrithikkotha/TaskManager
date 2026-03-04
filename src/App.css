@@ -27,7 +27,9 @@
 }
 
 /* ===== Reset & Base ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -145,9 +147,11 @@ body {
 }
 
 /* ===== Form ===== */
-.task-manager-sidebar {
-  position: sticky;
-  top: 1.5rem;
+@media (min-width: 901px) {
+  .task-manager-sidebar {
+    position: sticky;
+    top: 1.5rem;
+  }
 }
 
 .task-form {
@@ -370,8 +374,15 @@ body {
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== Task Item ===== */
@@ -391,9 +402,17 @@ body {
   box-shadow: var(--shadow);
 }
 
-.task-item.priority-low    { border-left-color: var(--success); }
-.task-item.priority-medium { border-left-color: var(--warning); }
-.task-item.priority-high   { border-left-color: var(--danger); }
+.task-item.priority-low {
+  border-left-color: var(--success);
+}
+
+.task-item.priority-medium {
+  border-left-color: var(--warning);
+}
+
+.task-item.priority-high {
+  border-left-color: var(--danger);
+}
 
 .task-item.task-completed {
   opacity: 0.6;
@@ -455,9 +474,20 @@ body {
   white-space: nowrap;
 }
 
-.priority-badge.priority-low    { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
-.priority-badge.priority-medium { background: rgba(245, 158, 11, 0.15); color: #fcd34d; }
-.priority-badge.priority-high   { background: rgba(239, 68, 68, 0.15);  color: #fca5a5; }
+.priority-badge.priority-low {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+}
+
+.priority-badge.priority-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+}
+
+.priority-badge.priority-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+}
 
 .task-description {
   font-size: 0.87rem;
@@ -500,7 +530,19 @@ body {
 }
 
 /* ===== Scrollbar ===== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
