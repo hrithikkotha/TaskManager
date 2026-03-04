@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-# 🔑 Grant the Actions bot write access to push to gh-pages branch
+# Grant the Actions bot write access to push to gh-pages branch
 permissions:
   contents: write
 
@@ -22,19 +22,16 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: TaskManager/package-lock.json
 
       - name: Install dependencies
-        working-directory: TaskManager
         run: npm ci
 
       - name: Build project
-        working-directory: TaskManager
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./TaskManager/dist
+          publish_dir: ./dist
           publish_branch: gh-pages
